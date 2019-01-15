@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t /example-voting-app-result ./result'
+        sh 'docker build -t docker/example-voting-app-result ./result'
       }
     }
   }
