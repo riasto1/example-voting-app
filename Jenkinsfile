@@ -1,7 +1,8 @@
 pipeline {
   agent {
-    node {
-      label 'ubuntu-1604-aufs-stable'
+    docker {
+      args '-p 3000:3000'
+      image 'node:8-alpine'
     }
 
   }
@@ -11,5 +12,8 @@ pipeline {
         sh 'docker build -t dockersamples/result ./result'
       }
     }
+  }
+  environment {
+    npm_config_cache = 'npm_config_cache'
   }
 }
